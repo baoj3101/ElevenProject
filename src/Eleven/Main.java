@@ -14,22 +14,22 @@ public class Main
             CardRunner();
         }
         public static void CardRunner() {
-		Card one = new Card("SPADES", 9);
-		out.println(one.getSuit());
-		out.println(one.getFace());
+            Card one = new Card("SPADES", 9);
+            out.println(one.getSuit());
+            out.println(one.getFace());
 
-		Card two = new Card("DIAMONDS", 1);
-		out.println(two);
-		two.setFace(3);
-		out.println(two);
+            Card two = new Card("DIAMONDS", 1);
+            out.println(two);
+            two.setFace(3);
+            out.println(two);
 
-		Card three = new Card("CLUBS", 4);
-		out.println(three);
+            Card three = new Card("CLUBS", 4);
+            out.println(three);
 
-		Card four = new Card("SPADES", 12);
-		out.println(four);
+            Card four = new Card("SPADES", 12);
+            out.println(four);
 
-		Card five = new Card("HEARTS", 12);
-		out.println(five);
+            Card five = new Card("HEARTS", 12);
+            out.println(five);
 	}
 }
