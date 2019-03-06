@@ -15,17 +15,17 @@ public class Deck
     private int top;
     
     public Deck() {
-        cards = new ArrayList <Card>();         // create an empty card ArrayList
+        cards = new ArrayList<Card>();          // create an empty card ArrayList
         top = NUM_CARDS_DECK - 1;               // last card on top by default
         for (String m: SUITS){
             for (int i = 1; i <= NUM_CARDS_SUIT; i++){
-                cards.add(new BlackJackCard(m, i));
+                cards.add(new BlackJackCard(m, i));   // actually, add new BlackJackCard
             }
         }
     }
     
     public String dealCard(){
-        return cards.get(--top).toString();
+        return cards.get(top--).toString();
     }
     
     public void shuffle(){
@@ -33,21 +33,3 @@ public class Deck
         top = NUM_CARDS_DECK - 1;               // reset top to the top card
     }
 }
-
-
-
-
-   //make a Deck constructor
-   	//refer cards to new ArrayList
-   	//set top to the top of the deck 51
-   	
-   	//loop through all suits
-   		//loop through all faces 1 to 13
-   			//add a new TwentyOneCard to the deck
-
-   
-   //make a dealCard() method that returns the top card
-   
-   //write a shuffle() method
-   	//use Colletions.shuffle
-   	//reset the top card 
