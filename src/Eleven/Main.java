@@ -12,6 +12,7 @@ public class Main
 	public static void main( String args[] )
 	{
             CardRunner();
+            DeckRunner();
         }
         public static void CardRunner() {
             Card one = new Card("SPADES", 9);
@@ -32,4 +33,16 @@ public class Main
             Card five = new Card("HEARTS", 12);
             out.println(five);
 	}
+        public static void DeckRunner() {
+            Deck one = new Deck();
+            System.out.println("Before Shuffle ======================");
+            for (int i = 1; i <= Deck.NUM_CARDS_DECK; i++) {
+                System.out.println(i + " :: " + one.dealCard());
+            }
+            one.shuffle();
+            System.out.println("After Shuffle ======================");
+            for (int i = 1; i <= Deck.NUM_CARDS_DECK; i++) {
+                System.out.println(i + " :: " + one.dealCard());
+            }
+        }
 }
