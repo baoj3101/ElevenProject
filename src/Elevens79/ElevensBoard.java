@@ -1,4 +1,4 @@
-package Elevens79;
+package Elevens7_9;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -55,7 +55,9 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		if(containsPairSum11(selectedCards) || containsJQK(selectedCards)){
+                    return true;
+                }return false;
 	}
 
 	/**
@@ -68,8 +70,26 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean anotherPlayIsPossible() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return containsPairSum11() || containsJQK();
 	}
+        
+        public boolean containsPairSum11(){
+            for(int i = 0; i < 9; i++){
+                for(int n = 0; n < 9; n++){
+                    if(cardAt(i).pointValue() + cardAt(n).pointValue() == 11)
+                        return true;
+                }
+            }return false;
+                
+        }
+        public boolean containsJQK(){
+            String a = "";
+            for(int i = 0; i < 9; i++){
+                a += cardAt(i).rank();
+            }if(a.contains("king") && a.contains("queen") && a.contains("jack"))
+                    return true;
+            return false;
+        }
 
 	/**
 	 * Check for an 11-pair in the selected cards.
@@ -81,8 +101,12 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-            if 
-            
+            if(selectedCards.size() == 2){
+                int value = 0;
+                value = cardAt(selectedCards.get(0)).pointValue() + cardAt(selectedCards.get(1)).pointValue();
+                if(value == 11)
+                    return true;
+            }return false;
 	}
 
 	/**
@@ -95,18 +119,11 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-            boolean j = false;
-            boolean q = false;
-            boolean k = false;
-            for (Integer num : selectedCards) {
-                String check = cardAt(num).rank();
-                if (check.equals("jack"))
-                  j = true;
-                if (check.equals("queen"))
-                  q = true;
-                if (check.equals("king"))
-                  k = true;
-            }
-            return(j && q && k);
+            if(selectedCards.size() == 3){
+                String a = cardAt(selectedCards.get(0)).rank() + cardAt(selectedCards.get(1)).rank() + cardAt(selectedCards.get(2)).rank();
+                if(a.contains("king") && a.contains("queen") && a.contains("jack"))
+                    return true;
+            }return false;
+            
 	}
 }
